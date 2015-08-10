@@ -1,12 +1,15 @@
 # By default Volt generates this controller for your Main component
 module Main
   class MainController < Volt::ModelController
+    model :page
+    
     def index
       # Add code for when the index view is loaded
     end
 
-    def code
-      # Add code for when the code view is loaded
+    def code_ready
+      page._text = "class #{rand(10)}"
+      `prettyPrint()`
     end
 
     private
