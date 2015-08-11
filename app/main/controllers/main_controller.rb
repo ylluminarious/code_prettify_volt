@@ -2,13 +2,16 @@
 module Main
   class MainController < Volt::ModelController
     model :page
-    
+
     def index
       # Add code for when the index view is loaded
     end
 
-    def code_ready
+    def code
       page._text = "class #{rand(10)}"
+    end
+
+    def code_ready
       `prettyPrint()`
     end
 
