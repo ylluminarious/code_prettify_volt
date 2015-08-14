@@ -12,6 +12,10 @@ module Main
     end
 
     def code_ready
+      text = proc do
+        page._text = nil
+      end.watch!
+      
       `prettyPrint()`
     end
 
